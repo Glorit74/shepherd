@@ -32,14 +32,16 @@ const MenuItem = ({ text }) => {
   );
 };
 
-const Wrapper = styled.a``;
+const Wrapper = styled.a`
+  margin: auto;
+`;
 
 const Content = styled.div`
   display: flex;
   align-items: center;
   justify-content: flex-start;
   gap: 15px;
-  border: 3px solid ${COLORS.white};
+  /* border: 3px solid ${COLORS.white}; */
   border-radius: 8px;
   background-color: ${COLORS.buttonBg};
   width: 350px;

@@ -25,8 +25,9 @@ const Links = styled.div`
   display: grid;
   margin: 20px auto;
   grid-template-columns: 1fr 1fr;
-  gap: 35px;
+  gap: 25px 0px;
   width: 75%;
+ 
 `;
 
 export default MainPage;

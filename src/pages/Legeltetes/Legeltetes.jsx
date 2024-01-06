@@ -3,6 +3,7 @@ import styled from "styled-components";
 import Background from "../../components/Background";
 import SheepIcon from "../../components/SheepIcon";
 import UnstyledButton from "../../components/UnstyledButton";
+import images from "../../utility";
 
 import { COLORS } from "../../constants";
 
@@ -13,21 +14,6 @@ import { MdOutlineKeyboardDoubleArrowRight } from "react-icons/md";
 
 const Carousel = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
-
-  //   const imageContext = require.context(
-  //     "public/pictures",
-  //     false,
-  //     /\.(png|jpe?g|svg)$/
-  //   );
-  //   const images = imageContext.keys().map(imageContext);
-
-  const images = [
-    "pictures/nyaj1.jpg",
-    "pictures/nyaj2.jpg",
-    "pictures/nyaj3.jpg",
-    "pictures/nyaj4.jpg",
-    "pictures/nyaj5.jpg",
-  ];
 
   const goToFirst = () => setCurrentIndex(0);
   const goToPrevious = () =>
@@ -45,28 +31,37 @@ const Carousel = () => {
       <Background question="Mi mindent csinál" title="a pásztor">
         <Wrapper>
           <SubTitle>
-            <SheepIcon size={"30px"} />
-            Legeltetés
+            <SheepIcon size={"45px"} />
+            <Content>LEGELTETÉS</Content>
           </SubTitle>
 
           <CarouselWrapper>
-            <PaginationButton onClick={goToPrevious}>
-              <MdKeyboardDoubleArrowLeft size={42} />
-            </PaginationButton>
             <PaginationButton onClick={goToFirst}>
-              <MdKeyboardArrowLeft size={42} />
+              <MdKeyboardDoubleArrowLeft size={60} />
             </PaginationButton>
-
-            <img src={images[currentIndex]} alt={`Slide ${currentIndex + 1}`} />
-
+            <PaginationButton onClick={goToPrevious}>
+              <MdKeyboardArrowLeft size={60} />
+            </PaginationButton>
+            {images[currentIndex].endsWith(".mp4") ? (
+              <VideoWrapper>
+                <video autoPlay={true} loop src={images[currentIndex]} />
+              </VideoWrapper>
+            ) : (
+              <ImgWrapper>
+                <img
+                  src={images[currentIndex]}
+                  alt={`Slide ${currentIndex + 1}`}
+                />
+              </ImgWrapper>
+            )}
             <PaginationButton onClick={goToNext}>
-              <MdOutlineKeyboardArrowRight size={42} />
+              <MdOutlineKeyboardArrowRight size={60} />
             </PaginationButton>
             <PaginationButton onClick={goToLast}>
-              <MdOutlineKeyboardDoubleArrowRight size={42} />
+              <MdOutlineKeyboardDoubleArrowRight size={60} />
             </PaginationButton>
           </CarouselWrapper>
-          <BackButton href="/" as='a'>
+          <BackButton href="/" as="a">
             Vissza
           </BackButton>
         </Wrapper>
@@ -84,26 +79,41 @@ const Wrapper = styled.article`
 const SubTitle = styled.h2`
   display: flex;
   justify-content: center;
-  gap: 15px;
+  gap: 35px;
   align-items: center;
   color: ${COLORS.white};
   margin-bottom: 1rem;
 `;
+
+const Content = styled.h3`
+	font-size: 3rem;
+	letter-spacing: .05rem;
+`
 
 const CarouselWrapper = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
   width: 80vw;
+  `;
 
-
+const ImgWrapper = styled.div`
+width: 60vw;
+height: 700px;
+border: solid;
+overflow: hidden;
   img {
     border: 5px solid ${COLORS.white};
     display: block;
     width: 100%;
-    margin: 0;
+	/* object-fit: cover; */
   }
 `;
+const VideoWrapper = styled(ImgWrapper)`
+video {
+	width: 100%;
+}
+`
 
 const PaginationButton = styled(UnstyledButton)`
   color: ${COLORS.white};
