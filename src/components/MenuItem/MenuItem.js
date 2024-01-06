@@ -33,20 +33,21 @@ const MenuItem = ({ text }) => {
 };
 
 const Wrapper = styled.a``;
+
 const Content = styled.div`
   display: flex;
   align-items: center;
   justify-content: flex-start;
   gap: 15px;
-  border: 3px solid hsl(0 0% 100%);
+  border: 3px solid ${COLORS.white};
   border-radius: 8px;
-  background-color: hsl(0 0% 10% / 0.2);
+  background-color: ${COLORS.buttonBg};
   width: 350px;
   padding: 0.5em 1em;
   font-size: 1.5rem;
   color: white;
   &:hover {
-    background-color: hsl(0 0% 30% / 0.5);
+    background-color: ${COLORS.buttonBgHover};
   }
 `;
 
