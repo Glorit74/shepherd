@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useRef } from "react";
 import styled from "styled-components";
 import Background from "../../components/Background";
 import SheepIcon from "../../components/SheepIcon";
@@ -15,6 +15,22 @@ import ProgressBar from "../../components/ProgressBar/ProgressBar";
 
 const Carousel = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
+  const [currentTime, setCurrentTime] = useState(0);
+  const [duration, setDuration] = useState(0);
+  const videoRef = useRef(null);
+
+  const handleTimeUpdate = () => {
+    const video = videoRef.current;
+    setCurrentTime(video.currentTime);
+    setDuration(video.duration);
+  };
+
+  const handleProgressClick = (e) => {
+    const video = videoRef.current;
+    const rect = e.target.getBoundingClientRect();
+    const percent = (e.clientX - rect.left) / rect.width;
+    video.currentTime = percent * duration;
+  };
 
   const goToFirst = () => setCurrentIndex(0);
   const goToPrevious = () =>
@@ -45,8 +61,19 @@ const Carousel = () => {
             </PaginationButton>
             {images[currentIndex].endsWith(".mp4") ? (
               <VideoWrapper>
-                <video autoPlay={true} loop src={images[currentIndex]} />
-				<ProgressBar size={"small"} value={"15"} />
+                <video
+                  ref={videoRef}
+                  autoPlay={true}
+                  loop
+                  src={images[currentIndex]}
+                  onTimeUpdate={handleTimeUpdate}
+                />
+                <ProgressBar
+                  size={"large"}
+                  value={currentTime}
+                  max={duration}
+                  onClick={handleProgressClick}
+                />
               </VideoWrapper>
             ) : (
               <ImgWrapper>
@@ -88,34 +115,35 @@ const SubTitle = styled.h2`
 `;
 
 const Content = styled.h3`
-	font-size: 3rem;
-	letter-spacing: .05rem;
-`
+  font-size: 3rem;
+  letter-spacing: 0.05rem;
+`;
 
 const CarouselWrapper = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
   width: 80vw;
-  `;
+`;
 
 const ImgWrapper = styled.div`
-width: 60vw;
-height: 700px;
-border: solid;
-overflow: hidden;
+  width: 60vw;
+  height: 700px;
+  border: solid;
+  overflow: hidden;
   img {
     border: 5px solid ${COLORS.white};
     display: block;
     width: 100%;
-	/* object-fit: cover; */
+    /* object-fit: cover; */
   }
 `;
 const VideoWrapper = styled(ImgWrapper)`
-video {
-	width: 100%;
-}
-`
+  video {
+    width: 100%;
+	margin-bottom: 25px;
+  }
+`;
 
 const PaginationButton = styled(UnstyledButton)`
   color: ${COLORS.white};
@@ -129,9 +157,8 @@ const BackButton = styled(UnstyledButton)`
   border: 1px solid ${COLORS.white};
   border-radius: 4px;
   background-color: ${COLORS.buttonBg};
-    &:hover {
-      background-color: ${COLORS.buttonBgHover};
-    }
-  
+  &:hover {
+    background-color: ${COLORS.buttonBgHover};
+  }
 `;
 export default Carousel;
