@@ -11,6 +11,7 @@ import { MdKeyboardArrowLeft } from "react-icons/md";
 import { MdKeyboardDoubleArrowLeft } from "react-icons/md";
 import { MdOutlineKeyboardArrowRight } from "react-icons/md";
 import { MdOutlineKeyboardDoubleArrowRight } from "react-icons/md";
+import ProgressBar from "../../components/ProgressBar/ProgressBar";
 
 const Carousel = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -45,6 +46,7 @@ const Carousel = () => {
             {images[currentIndex].endsWith(".mp4") ? (
               <VideoWrapper>
                 <video autoPlay={true} loop src={images[currentIndex]} />
+				<ProgressBar size={"small"} value={"15"} />
               </VideoWrapper>
             ) : (
               <ImgWrapper>

@@ -15,7 +15,15 @@ const menu = [
 const COLORS = {
   white: "hsl(0deg 0% 100%)",
   buttonBg: "hsl(0 0% 10% / 0.2)",
-  buttonBgHover: "hsl(0 0% 30% / 0.5)"
+  buttonBgHover: "hsl(0 0% 30% / 0.5)",
+  primary: "hsl(240deg 80% 60%)",
+  gray50: "hsl(0deg 0% 95%)",
+  gray300: "hsl(0deg 0% 75%)",
+  gray500: "hsl(0deg 0% 50%)",
+  gray700: "hsl(0deg 0% 40%)",
+  black: "hsl(0deg 0% 0%)",
+  transparentGray15: "hsl(0deg 0% 50% / 0.15)",
+  transparentGray35: "hsl(0deg 0% 50% / 0.35)",
 };
 
 export { menu, COLORS };
