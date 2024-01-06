@@ -13,7 +13,9 @@ const menu = [
 ];
 
 const COLORS = {
-  white: "hls(0deg 0% 100%)",
+  white: "hsl(0deg 0% 100%)",
+  buttonBg: "hsl(0 0% 10% / 0.2)",
+  buttonBgHover: "hsl(0 0% 30% / 0.5)"
 };
 
 export { menu, COLORS };
