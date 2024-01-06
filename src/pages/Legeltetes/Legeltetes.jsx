@@ -65,8 +65,10 @@ const Carousel = () => {
             <PaginationButton onClick={goToLast}>
               <MdOutlineKeyboardDoubleArrowRight size={42} />
             </PaginationButton>
-			
           </CarouselWrapper>
+          <BackButton href="/" as='a'>
+            Vissza
+          </BackButton>
         </Wrapper>
       </Background>
     </>
@@ -92,19 +94,32 @@ const CarouselWrapper = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 50%;
-  
+  width: 80vw;
+
+
   img {
-	  border: 5px solid ${COLORS.white};
+    border: 5px solid ${COLORS.white};
     display: block;
     width: 100%;
-	margin: 0;
-
+    margin: 0;
   }
 `;
 
 const PaginationButton = styled(UnstyledButton)`
   color: ${COLORS.white};
-  padding: 5 10px;
+  padding: 5px 10px;
+`;
+
+const BackButton = styled(UnstyledButton)`
+  color: ${COLORS.white};
+  padding: 3px 15px;
+  margin-top: 25px;
+  border: 1px solid ${COLORS.white};
+  border-radius: 4px;
+  background-color: ${COLORS.buttonBg};
+    &:hover {
+      background-color: ${COLORS.buttonBgHover};
+    }
+  
 `;
 export default Carousel;
