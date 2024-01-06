@@ -3,7 +3,7 @@ import styled from "styled-components";
 
 import { menu } from "../../constants";
 import MenuItem from "../../components/MenuItem";
-import Background from "../../components/Background/Background";
+import Background from "../../components/Background";
 
 const MainPage = () => {
   return (
