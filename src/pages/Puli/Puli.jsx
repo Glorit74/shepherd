@@ -1,10 +1,16 @@
-import React from "react";
+import React, { useState } from "react";
 import Background from "../../components/Background";
 import styled from "styled-components";
 import { puli } from "../../utility";
 import { COLORS } from "../../constants";
 
 function Puli() {
+  const [selectedImage, setSelectedImage] = useState(1);
+
+  const handleClick = (image) => {
+    setSelectedImage(image);
+  };
+
   return (
     <Background question="" title="">
       <Shadow>
@@ -15,11 +21,20 @@ function Puli() {
             <img src={puli[0]} alt="puli" />
           </PuliAvatar>
           {puli.map((filename, index) => (
-            <ImageWrapper key={index + 1}>
-              <img src={puli[index]} alt={`Puli ${index + 1}`} />
+            <ImageWrapper key={index}>
+              <img
+                src={puli[index + 1]}
+                alt={`Puli ${index + 1}`}
+                onClick={() => handleClick(index)}
+              />
             </ImageWrapper>
           ))}
         </Wrapper>
+        {selectedImage && (
+          <SelectedImageWrapper>
+            <img src={puli[selectedImage+1]} alt={`Puli ${selectedImage + 1}`} />
+          </SelectedImageWrapper>
+        )}
       </Shadow>
     </Background>
   );
@@ -91,6 +106,22 @@ const ImageWrapper = styled.picture`
     border: 1px solid ${COLORS.white};
     display: block;
     width: 100%;
+  }
+`;
+
+const SelectedImageWrapper = styled.div`
+  width: 40vw;
+  margin: auto;
+  margin-top: 55px;
+  border: 2px solid green;
+  img {
+    img {
+      object-fit: cover;
+      aspect-ratio: 1 / 1;
+      display: block;
+      width: 100%;
+	
+    }
   }
 `;
 
