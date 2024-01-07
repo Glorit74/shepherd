@@ -1,6 +1,7 @@
 import React, { useState, useRef } from "react";
 import styled from "styled-components";
 import Background from "../../components/Background";
+import BackButton from "../../components/BackButton";
 import SheepIcon from "../../components/SheepIcon";
 import UnstyledButton from "../../components/UnstyledButton";
 
@@ -90,9 +91,7 @@ const Carousel = () => {
               <MdOutlineKeyboardDoubleArrowRight size={60} />
             </PaginationButton> */}
           </CarouselWrapper>
-          <BackButton href="/" as="a">
-            Vissza
-          </BackButton>
+          <BackButton />
         </Wrapper>
       </Background>
     </>
@@ -147,14 +146,4 @@ const PaginationButton = styled(UnstyledButton)`
   padding: 5px 10px;
 `;
 
-const BackButton = styled(UnstyledButton)`
-  color: ${COLORS.white};
-  padding: 3px 15px;
-  border: 1px solid ${COLORS.white};
-  border-radius: 4px;
-  background-color: ${COLORS.buttonBg};
-  &:hover {
-    background-color: ${COLORS.buttonBgHover};
-  }
-`;
 export default Carousel;

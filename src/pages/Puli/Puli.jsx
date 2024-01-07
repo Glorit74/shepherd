@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import Background from "../../components/Background";
+import BackButton from "../../components/BackButton";
 import styled from "styled-components";
 import { puli } from "../../utility";
 import { COLORS } from "../../constants";
@@ -32,9 +33,13 @@ function Puli() {
         </Wrapper>
         {selectedImage && (
           <SelectedImageWrapper>
-            <img src={puli[selectedImage+1]} alt={`Puli ${selectedImage + 1}`} />
+            <img
+              src={puli[selectedImage + 1]}
+              alt={`Puli ${selectedImage + 1}`}
+            />
           </SelectedImageWrapper>
         )}
+        <BackButton />
       </Shadow>
     </Background>
   );
@@ -120,7 +125,6 @@ const SelectedImageWrapper = styled.div`
       aspect-ratio: 1 / 1;
       display: block;
       width: 100%;
-	
     }
   }
 `;
