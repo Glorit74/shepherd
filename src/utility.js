@@ -5,11 +5,11 @@ const imageContext = require.context(
 );
 const images = imageContext.keys().map(imageContext);
 
-const imageContextBg = require.context(
-  "/src/images",
+const imageContextPuli = require.context(
+  "../public/pictures/puli",
   false,
   /\.(jpg|jpeg|png)$/
 );
-const bgImages = imageContextBg.keys().map(imageContextBg);
+const puli = imageContextPuli.keys().map(imageContextPuli);
 
-export { images, bgImages};
+export  {  images, puli };

@@ -1,9 +1,10 @@
 import React from "react";
 import styled from "styled-components";
-import img from "./../../images/background_sheep.jpg"
+import img from "../../images/background/home.jpg"
 import { COLORS } from "../../constants";
 
 function Background({ img, question, title, children }) {
+
   return (
     <Wrapper img={img}>
       <Shadow>

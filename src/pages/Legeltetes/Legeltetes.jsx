@@ -3,8 +3,8 @@ import styled from "styled-components";
 import Background from "../../components/Background";
 import SheepIcon from "../../components/SheepIcon";
 import UnstyledButton from "../../components/UnstyledButton";
-import images from "../../utility";
 
+import { images } from "../../utility";
 import { COLORS } from "../../constants";
 
 import { MdKeyboardArrowLeft } from "react-icons/md";

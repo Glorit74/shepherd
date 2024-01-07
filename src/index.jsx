@@ -5,6 +5,7 @@ import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import ErrorPage from "./pages/Error-page";
 import Legeltetes from "./pages/Legeltetes";
 import MainPage from "./pages/MainPage";
+import Puli from "./pages/Puli";
 
 
 const router = createBrowserRouter([
@@ -16,6 +17,10 @@ const router = createBrowserRouter([
 {
 	path: "/legeltetes",
 	  element: <Legeltetes />
+},
+{
+	path: "/tobb",
+	  element: <Puli />
 }
 ]);
 

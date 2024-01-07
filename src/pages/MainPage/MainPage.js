@@ -8,7 +8,7 @@ import Background from "../../components/Background";
 const MainPage = () => {
   return (
     <Background
-      src="/src/images/background_sheep.jpg"
+      backgroundImage="home.jpg"
       question="Mi mindent csinál"
       title="a pásztor"
     >
