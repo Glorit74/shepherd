@@ -48,16 +48,16 @@ const Carousel = () => {
       <Background question="Mi mindent csinál" title="a pásztor">
         <Wrapper>
           <SubTitle>
-            <SheepIcon size={"45px"} />
+            <SheepIcon size={"35px"} />
             <Content>LEGELTETÉS</Content>
           </SubTitle>
 
           <CarouselWrapper>
-            <PaginationButton onClick={goToFirst}>
+            {/* <PaginationButton onClick={goToFirst}>
               <MdKeyboardDoubleArrowLeft size={60} />
-            </PaginationButton>
+            </PaginationButton> */}
             <PaginationButton onClick={goToPrevious}>
-              <MdKeyboardArrowLeft size={60} />
+              <MdKeyboardArrowLeft size={100} />
             </PaginationButton>
             {images[currentIndex].endsWith(".mp4") ? (
               <VideoWrapper>
@@ -84,11 +84,11 @@ const Carousel = () => {
               </ImgWrapper>
             )}
             <PaginationButton onClick={goToNext}>
-              <MdOutlineKeyboardArrowRight size={60} />
+              <MdOutlineKeyboardArrowRight size={100} />
             </PaginationButton>
-            <PaginationButton onClick={goToLast}>
+            {/* <PaginationButton onClick={goToLast}>
               <MdOutlineKeyboardDoubleArrowRight size={60} />
-            </PaginationButton>
+            </PaginationButton> */}
           </CarouselWrapper>
           <BackButton href="/" as="a">
             Vissza
@@ -103,6 +103,7 @@ const Wrapper = styled.article`
   display: flex;
   flex-direction: column;
   align-items: center;
+  gap: 25px;
 `;
 
 const SubTitle = styled.h2`
@@ -111,11 +112,10 @@ const SubTitle = styled.h2`
   gap: 35px;
   align-items: center;
   color: ${COLORS.white};
-  margin-bottom: 1rem;
 `;
 
 const Content = styled.h3`
-  font-size: 3rem;
+  font-size: 2rem;
   letter-spacing: 0.05rem;
 `;
 
@@ -123,25 +123,22 @@ const CarouselWrapper = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 80vw;
 `;
 
 const ImgWrapper = styled.div`
-  width: 60vw;
-  height: 700px;
-  border: solid;
-  overflow: hidden;
+  width: 50vw;
+  object-fit: cover;
   img {
+    aspect-ratio: 3 / 2;
     border: 5px solid ${COLORS.white};
     display: block;
     width: 100%;
-    /* object-fit: cover; */
   }
 `;
 const VideoWrapper = styled(ImgWrapper)`
   video {
     width: 100%;
-	margin-bottom: 25px;
+    aspect-ratio: 3 / 2;
   }
 `;
 
@@ -153,7 +150,6 @@ const PaginationButton = styled(UnstyledButton)`
 const BackButton = styled(UnstyledButton)`
   color: ${COLORS.white};
   padding: 3px 15px;
-  margin-top: 25px;
   border: 1px solid ${COLORS.white};
   border-radius: 4px;
   background-color: ${COLORS.buttonBg};
