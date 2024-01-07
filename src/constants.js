@@ -10,6 +10,7 @@ const menu = [
   { id: 9, label: "gyógyítás", active: false },
   { id: 10, label: "takarmányozás", active: false },
   { id: 11, label: "etetés", active: false },
+  { id: 12, label: "több, mint puli", active: true },
 ];
 
 const COLORS = {
