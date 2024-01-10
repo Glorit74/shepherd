@@ -5,19 +5,19 @@ import UnstyledButton from "../../components/UnstyledButton";
 import styled from "styled-components";
 import puliAvatar from "./puliAvatar.jpg";
 import { puli } from "../../utility";
-import { COLORS } from "../../constants";
+import { COLORS, puliText } from "../../constants";
 
 import { MdKeyboardArrowLeft } from "react-icons/md";
 import { MdOutlineKeyboardArrowRight } from "react-icons/md";
 
 function Puli() {
   const [selectedImage, setSelectedImage] = useState(0);
-  const [selected, setSelected] = useState(false);
+  //   const [selected, setSelected] = useState(false);
   const [currentIndex, setCurrentIndex] = useState(0);
 
   const handleClick = (image) => {
     setSelectedImage(image);
-    setSelected(true);
+    // setSelected(true);
     setCurrentIndex(image);
   };
 
@@ -51,12 +51,14 @@ function Puli() {
                   fontSize: "23px",
                   color: "white",
                   textAlign: "center",
+                  border: `${index === currentIndex ? "solid yellow" : "none"}`,
                 }}
               />
             </ImageWrapper>
           ))}
         </Wrapper>
-        {selected && (
+        {/* {selected && ( */}
+        <>
           <CarouselWrapper>
             <PaginationButton onClick={goToPrevious}>
               <MdKeyboardArrowLeft size={80} />
@@ -67,13 +69,13 @@ function Puli() {
             <PaginationButton onClick={goToNext}>
               <MdOutlineKeyboardArrowRight size={80} />
             </PaginationButton>
-            <Story>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Tenetur
-              repellat hic voluptates quas, officia optio eum nemo itaque soluta
-              aliquam. Ex assumenda expedita debitis repudiandae.
-            </Story>
           </CarouselWrapper>
-        )}
+          {puliText[currentIndex]?.name  && <StoryContainer>
+            <StoryTitle>{puliText[currentIndex].name}</StoryTitle>
+            <Story>{puliText[currentIndex].story}</Story>
+          </StoryContainer>}
+        </>
+        {/* )} */}
         <BackButton />
       </Shadow>
     </Background>
@@ -111,7 +113,7 @@ const SubTitle = styled.h3`
 `;
 
 const Shadow = styled.main`
-  position: absolute;
+  position: fixed;
   top: 0;
   bottom: 0;
   left: 0;
@@ -122,6 +124,7 @@ const Shadow = styled.main`
     hsla(0, 0%, 0%, 0.85) 50%,
     hsl(0, 0%, 3.5%) 90%
   );
+  overflow-y: auto;
 `;
 
 const PuliAvatar = styled.main`
@@ -148,7 +151,7 @@ const ImageWrapper = styled.picture`
     width: 100%;
   }
 `;
-const CarouselWrapper = styled.article`
+const CarouselWrapper = styled.main`
   display: flex;
   justify-content: center;
   align-items: center;
@@ -171,10 +174,23 @@ const PaginationButton = styled(UnstyledButton)`
   padding: 5px 10px;
 `;
 
-const Story = styled.p`
+const StoryContainer = styled.article`
+  width: 70vw;
+  margin: auto;
+  margin-top: 25px ;
   padding: 0.8rem 1rem;
   color: ${COLORS.white};
-  columns: 2;
+  border: 1px solid ${COLORS.white};
 `;
 
+const StoryTitle = styled.h4`
+  text-align: center;
+  font-size: 1.25rem;
+  font-weight: 500;
+  margin: auto;
+`;
+
+const Story = styled.p`
+  columns: 2;
+`;
 export default Puli;

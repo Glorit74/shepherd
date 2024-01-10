@@ -1,10 +1,9 @@
 import React from "react";
 import styled from "styled-components";
-import img from "../../images/background/home.jpg"
+import img from "../../images/background/home.jpg";
 import { COLORS } from "../../constants";
 
 function Background({ img, question, title, children }) {
-
   return (
     <Wrapper img={img}>
       <Shadow>
@@ -20,10 +19,11 @@ const Wrapper = styled.div`
   max-width: 1920px;
   max-height: 1080px;
   min-height: 100vh;
-  background-color: darkgray;
+  background-color: black;
   background: url(${img});
   background-size: cover;
   background-position: center bottom;
+  background-attachment: fixed;
 `;
 
 const Shadow = styled.main`
