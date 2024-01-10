@@ -1,16 +1,36 @@
 import React, { useState } from "react";
 import Background from "../../components/Background";
 import BackButton from "../../components/BackButton";
+import UnstyledButton from "../../components/UnstyledButton";
 import styled from "styled-components";
+import puliAvatar from "./puliAvatar.jpg";
 import { puli } from "../../utility";
 import { COLORS } from "../../constants";
 
+import { MdKeyboardArrowLeft } from "react-icons/md";
+import { MdOutlineKeyboardArrowRight } from "react-icons/md";
+
 function Puli() {
-  const [selectedImage, setSelectedImage] = useState(1);
+  const [selectedImage, setSelectedImage] = useState(0);
+  const [selected, setSelected] = useState(false);
+  const [currentIndex, setCurrentIndex] = useState(0);
 
   const handleClick = (image) => {
     setSelectedImage(image);
+    setSelected(true);
+    setCurrentIndex(image);
   };
+
+  const goToPrevious = () => {
+    console.log(currentIndex, "next után");
+    setCurrentIndex((prevIndex) =>
+      prevIndex > 0 ? prevIndex - 1 : puli.length - 1
+    );
+  };
+  const goToNext = () =>
+    setCurrentIndex((prevIndex) =>
+      prevIndex < puli.length - 1 ? prevIndex + 1 : 0
+    );
 
   return (
     <Background question="" title="">
@@ -19,25 +39,40 @@ function Puli() {
         <Title>PULI</Title>
         <Wrapper>
           <PuliAvatar>
-            <img src={puli[0]} alt="puli" />
+            <img src={puliAvatar} alt="puli" />
           </PuliAvatar>
           {puli.map((filename, index) => (
             <ImageWrapper key={index}>
               <img
-                src={puli[index + 1]}
-                alt={`Puli ${index + 1}`}
+                src={puli[index]}
+                alt={`Puli ${index}`}
                 onClick={() => handleClick(index)}
+                style={{
+                  fontSize: "23px",
+                  color: "white",
+                  textAlign: "center",
+                }}
               />
             </ImageWrapper>
           ))}
         </Wrapper>
-        {selectedImage && (
-          <SelectedImageWrapper>
-            <img
-              src={puli[selectedImage + 1]}
-              alt={`Puli ${selectedImage + 1}`}
-            />
-          </SelectedImageWrapper>
+        {selected && (
+          <CarouselWrapper>
+            <PaginationButton onClick={goToPrevious}>
+              <MdKeyboardArrowLeft size={80} />
+            </PaginationButton>
+            <SelectedImageWrapper>
+              <img src={puli[currentIndex]} alt={`Puli ${currentIndex}`} />
+            </SelectedImageWrapper>
+            <PaginationButton onClick={goToNext}>
+              <MdOutlineKeyboardArrowRight size={80} />
+            </PaginationButton>
+            <Story>
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Tenetur
+              repellat hic voluptates quas, officia optio eum nemo itaque soluta
+              aliquam. Ex assumenda expedita debitis repudiandae.
+            </Story>
+          </CarouselWrapper>
         )}
         <BackButton />
       </Shadow>
@@ -113,20 +148,33 @@ const ImageWrapper = styled.picture`
     width: 100%;
   }
 `;
+const CarouselWrapper = styled.article`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+`;
 
 const SelectedImageWrapper = styled.div`
   width: 40vw;
-  margin: auto;
   margin-top: 55px;
-  border: 2px solid green;
   img {
-    img {
-      object-fit: cover;
-      aspect-ratio: 1 / 1;
-      display: block;
-      width: 100%;
-    }
+    object-fit: cover;
+    object-position: top center;
+    aspect-ratio: 1.1 / 1;
+    display: block;
+    width: 100%;
   }
+`;
+
+const PaginationButton = styled(UnstyledButton)`
+  color: ${COLORS.white};
+  padding: 5px 10px;
+`;
+
+const Story = styled.p`
+  padding: 0.8rem 1rem;
+  color: ${COLORS.white};
+  columns: 2;
 `;
 
 export default Puli;

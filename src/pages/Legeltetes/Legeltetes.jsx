@@ -9,9 +9,7 @@ import { images } from "../../utility";
 import { COLORS } from "../../constants";
 
 import { MdKeyboardArrowLeft } from "react-icons/md";
-import { MdKeyboardDoubleArrowLeft } from "react-icons/md";
 import { MdOutlineKeyboardArrowRight } from "react-icons/md";
-import { MdOutlineKeyboardDoubleArrowRight } from "react-icons/md";
 import ProgressBar from "../../components/ProgressBar/ProgressBar";
 
 const Carousel = () => {
@@ -54,9 +52,7 @@ const Carousel = () => {
           </SubTitle>
 
           <CarouselWrapper>
-            {/* <PaginationButton onClick={goToFirst}>
-              <MdKeyboardDoubleArrowLeft size={60} />
-            </PaginationButton> */}
+            
             <PaginationButton onClick={goToPrevious}>
               <MdKeyboardArrowLeft size={100} />
             </PaginationButton>
