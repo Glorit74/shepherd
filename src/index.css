@@ -5,7 +5,6 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  font-family: "Afacad", sans-serif;
 }
 
 *,
@@ -29,10 +28,7 @@ body {
   -webkit-font-smoothing: antialiased;
 }
 
-*/ Dinamikus magasság beállítás * {
-  line-height: calc(1em + 0.5rem);
-}
-*/ img,
+img,
 picture,
 video,
 canvas,
@@ -65,6 +61,3 @@ a {
 #__next {
   isolation: isolate;
 }
-
-/* @media (min-width: 550px) and (max-width: 1099.99px) {
-} */
