@@ -1,0 +1,33 @@
+{
+  "files": {
+    "main.css": "/shepherd/static/css/main.38fa2958.css",
+    "main.js": "/shepherd/static/js/main.5ec76200.js",
+    "static/media/cow1.mp4": "/shepherd/static/media/cow1.52574c30b1d2f5dd78e1.mp4",
+    "static/media/lamb1.mp4": "/shepherd/static/media/lamb1.088daaee9654192024df.mp4",
+    "static/media/home.jpg": "/shepherd/static/media/home.3d948cd827546f8eb218.jpg",
+    "static/media/nyaj3.jpg": "/shepherd/static/media/nyaj3.c5b8b1b3f4dbeb8fbed4.jpg",
+    "static/media/nyaj5.jpg": "/shepherd/static/media/nyaj5.521aac76e6002481167b.jpg",
+    "static/media/puli-3.jpg": "/shepherd/static/media/puli-3.40f28194d42cc7662d5a.jpg",
+    "static/media/nyaj4.jpg": "/shepherd/static/media/nyaj4.3f8dc39c606e2b11b690.jpg",
+    "static/media/puli-1.jpg": "/shepherd/static/media/puli-1.bc5e4ed9edfc8ffc3d2e.jpg",
+    "static/media/puli-7.jpg": "/shepherd/static/media/puli-7.c40d35d5a779967b8324.jpg",
+    "static/media/puli-6.jpg": "/shepherd/static/media/puli-6.c62a4fee0d0eb95a4759.jpg",
+    "static/media/puli-4.jpg": "/shepherd/static/media/puli-4.b37ab2e1110f3e577092.jpg",
+    "static/media/puli-5.jpg": "/shepherd/static/media/puli-5.788276fb16d62f05daab.jpg",
+    "static/media/puli-9.jpg": "/shepherd/static/media/puli-9.d6b91e3328649fd088cf.jpg",
+    "static/media/puli-10.jpg": "/shepherd/static/media/puli-10.64caab8afcd705be2ba8.jpg",
+    "static/media/puli-11.jpg": "/shepherd/static/media/puli-11.37335d2ba38954cfcd8b.jpg",
+    "static/media/puli-8.jpg": "/shepherd/static/media/puli-8.4678e5eb5a76acd9acb0.jpg",
+    "static/media/puli-2.jpg": "/shepherd/static/media/puli-2.15d674fc7a9f032daa85.jpg",
+    "static/media/puli-0.jpg": "/shepherd/static/media/puli-0.4628db339a1869f75439.jpg",
+    "static/media/puliAvatar.jpg": "/shepherd/static/media/puliAvatar.f9092292e53b0ff5026b.jpg",
+    "static/media/nyaj2.jpg": "/shepherd/static/media/nyaj2.ec53d02cc7a8f2d6d523.jpg",
+    "index.html": "/shepherd/index.html",
+    "main.38fa2958.css.map": "/shepherd/static/css/main.38fa2958.css.map",
+    "main.5ec76200.js.map": "/shepherd/static/js/main.5ec76200.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.38fa2958.css",
+    "static/js/main.5ec76200.js"
+  ]
+}
