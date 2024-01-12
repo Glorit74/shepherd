@@ -5,7 +5,7 @@ import { COLORS } from "../../constants";
 
 function BackButton() {
   return (
-    <Button href="/" as="a">
+    <Button href="/shepherd" as="a">
       Vissza
     </Button>
   );
