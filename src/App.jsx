@@ -6,14 +6,17 @@ import Puli from "./pages/Puli";
 
 function App() {
   return (
-    <BrowserRouter>
-      <Routes>
-        <Route path="/shepherd" element={<MainPage />} />
-        <Route path="/legeltetes" element={<Legeltetes />} />
-        <Route path="/puli" element={<Puli />} />
-        <Route path="/" element={<ErrorPage/>} />
-      </Routes>
-    </BrowserRouter>
+    <div className="app">
+      kiskutya
+      <BrowserRouter>
+        <Routes>
+          <Route path="/shepherd" element={<MainPage />} />
+          <Route path="/legeltetes" element={<Legeltetes />} />
+          <Route path="/puli" element={<Puli />} />
+          <Route path="/" element={<ErrorPage />} />
+        </Routes>
+      </BrowserRouter>
+    </div>
   );
 }
 
