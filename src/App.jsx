@@ -7,8 +7,7 @@ import Puli from "./pages/Puli";
 function App() {
   return (
     <div className="app">
-      kiskutya
-      <BrowserRouter>
+      <BrowserRouter basename="/shepherd">
         <Routes>
           <Route path="/shepherd" element={<MainPage />} />
           <Route path="/legeltetes" element={<Legeltetes />} />
