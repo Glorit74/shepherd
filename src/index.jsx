@@ -1,8 +1,30 @@
-import React from "react";
-import { createRoot } from "react-dom/client";
+import * as React from "react";
+import * as ReactDOM from "react-dom/client";
+import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import "./index.css";
-import App from "./App";
+import MainPage from "./pages/MainPage"
+import ErrorPage from "./pages/ErrorPage/ErrorPage"
+import Puli from "./pages/Puli/Puli"
+import Legeltetes from "./pages/Legeltetes/Legeltetes"
 
-const container = document.getElementById("root");
-const root = createRoot(container);
-root.render(<App />);
+const router = createBrowserRouter([
+  {
+    path: "/",
+    element: <MainPage />,
+    errorElement: <ErrorPage />,
+  },
+  {
+    path: "/legeltetes",
+    element: <Legeltetes />,
+  },
+  {
+    path: "/tobb",
+    element: <Puli />,
+  },
+]);
+
+ReactDOM.createRoot(document.getElementById("root")).render(
+  <React.StrictMode>
+    <RouterProvider router={router} />
+  </React.StrictMode>
+);

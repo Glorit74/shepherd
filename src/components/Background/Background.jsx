@@ -2,6 +2,7 @@ import React from "react";
 import styled from "styled-components";
 import img from "../../images/background/home.jpg";
 import { COLORS } from "../../constants";
+import Footer from "../Footer/Footer";
 
 function Background({ img, question, title, children }) {
   return (
@@ -10,6 +11,7 @@ function Background({ img, question, title, children }) {
         {question && <PageTitle>{question}</PageTitle>}
         <PageMainTitle>{title}</PageMainTitle>
         {children}
+        <Footer />
       </Shadow>
     </Wrapper>
   );
