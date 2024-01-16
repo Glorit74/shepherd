@@ -9,7 +9,7 @@ import Legeltetes from "./pages/Legeltetes/Legeltetes"
 
 const router = createBrowserRouter([
   {
-    path: "/",
+    path: "/shepherd",
     element: <MainPage />,
     errorElement: <ErrorPage />,
   },
