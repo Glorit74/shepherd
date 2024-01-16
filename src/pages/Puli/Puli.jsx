@@ -70,12 +70,13 @@ function Puli() {
               <MdOutlineKeyboardArrowRight size={80} />
             </PaginationButton>
           </CarouselWrapper>
-          {puliText[currentIndex]?.name  && <StoryContainer>
-            <StoryTitle>{puliText[currentIndex].name}</StoryTitle>
-            <Story>{puliText[currentIndex].story}</Story>
-          </StoryContainer>}
+          {puliText[currentIndex]?.name && (
+            <StoryContainer>
+              <StoryTitle>{puliText[currentIndex].name}</StoryTitle>
+              <Story>{puliText[currentIndex].story}</Story>
+            </StoryContainer>
+          )}
         </>
-        {/* )} */}
         <BackButton />
       </Shadow>
     </Background>
@@ -89,10 +90,10 @@ const Wrapper = styled.main`
   top: 30px;
   margin: auto;
   gap: 10px;
+  padding-left: 5px;
   max-width: 80vw;
   max-height: 400px;
   background: black;
-
   overflow-y: auto;
 `;
 
@@ -103,6 +104,7 @@ const Title = styled.h2`
   margin-left: 40px;
   letter-spacing: 8px;
 `;
+
 const SubTitle = styled.h3`
   color: ${COLORS.white};
   font-size: 2rem;
@@ -143,12 +145,19 @@ const PuliAvatar = styled.main`
 
 const ImageWrapper = styled.picture`
   width: 110px;
+  padding: 5px 0;
   img {
     object-fit: cover;
     aspect-ratio: 1 / 1;
     border: 1px solid ${COLORS.white};
     display: block;
     width: 100%;
+
+    &:hover {
+      border: solid red;
+      cursor: pointer;
+      transform: scale(1.1);
+    }
   }
 `;
 const CarouselWrapper = styled.main`
@@ -158,6 +167,7 @@ const CarouselWrapper = styled.main`
 `;
 
 const SelectedImageWrapper = styled.div`
+  position: relative;
   width: 40vw;
   margin-top: 55px;
   img {
@@ -177,7 +187,7 @@ const PaginationButton = styled(UnstyledButton)`
 const StoryContainer = styled.article`
   width: 70vw;
   margin: auto;
-  margin-top: 25px ;
+  margin-top: 25px;
   padding: 0.8rem 1rem;
   color: ${COLORS.white};
   border: 1px solid ${COLORS.white};

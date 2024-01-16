@@ -3,7 +3,7 @@ import * as ReactDOM from "react-dom/client";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import "./index.css";
 import MainPage from "./pages/MainPage"
-import ErrorPage from "./pages/ErrorPage/ErrorPage"
+import ErrorPage from "./pages/ErrorPage/Error-page"
 import Puli from "./pages/Puli/Puli"
 import Legeltetes from "./pages/Legeltetes/Legeltetes"
 
